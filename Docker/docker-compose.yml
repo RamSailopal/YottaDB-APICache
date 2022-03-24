@@ -1,0 +1,41 @@
+#
+#       AUTHOR - Raman Sailopal
+#
+#       docker compose yml file for the Yotta cache stack
+#
+version: "2"
+services:
+ yottadb:
+   hostname: yottadb
+   container_name: yottadb
+   image: docker.io/ramb0/yottadb-gateway
+   networks:
+      - yottanet
+   ports:
+      - 7042:7041
+   volumes:
+      - ../yottadb:/home/yotta
+   mem_limit: 1G
+   entrypoint: [ "/bin/bash", "-c", "cd /home/yotta && /opt/yottadb/current/ydb && cp yottacache.m /data/r1.30_x86_64/r && /opt/yottadb/current/ydb <<< 'ZL \"yottacache.m\"' && chmod +x /tmp/run.sh && /tmp/run.sh" ]
+
+
+ node:
+   image: docker.io/ramb0/yottadb-nodejs-client 
+   hostname: node
+   restart: always
+   container_name: node
+   ports:
+      - 4000:4000
+   volumes:
+      - ../:/home/yotta
+   entrypoint: [ "/bin/bash", "-c", "cd /home/yotta && yarn add mg-dbx express axios && node server.js" ] 
+   networks:
+      - yottanet
+   mem_limit: 1G
+   memswap_limit: 1G
+   mem_reservation: 1G
+
+networks:
+    yottanet:
+volumes:
+    app-volume:
