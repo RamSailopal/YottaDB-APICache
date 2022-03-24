@@ -33,7 +33,7 @@ The following endpoints will first call the external api's (referenced above) an
    
    http://dockerserveraddress:4000/reddit or https://4000-gitpodserveraddress/reddit
    
- The M routine **yottacache** is used to create and clear the cache and **Rob Tweeds** **mg-dbx** used to write and read from YottaDB as well as calling the yottacache M functions
+ The M routine **yottacache** is used to create and clear the cache and **Rob Tweed's** **mg-dbx** used to write and read from YottaDB as well as calling the yottacache M functions
 
 # References
 
