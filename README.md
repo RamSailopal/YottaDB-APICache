@@ -35,6 +35,6 @@ The following endpoints will first call the external api's (referenced above) an
    
  The M routine **yottacache** is used to create and clear the cache and **Rob Tweeds** **mg-dbx** used to write and read from YottaDB as well as calling the yottacache M functions
 
-#References
+# References
 
 **mg-dbx** - https://www.npmjs.com/package/mg-dbx
