@@ -28,6 +28,10 @@ Get a free gitpod account at https://gitpod.io and then click on the Gitpod butt
     
 # Testing with Postman
 
+You can attain a web based version of Postman from here:
+
+https://go.postman.co
+
 The following endpoints will first call the external api's (referenced above) and create a cache within YottaDB. All subsequent calls will use the cache up until a period a 30 seconds when the cache is cleared.
 
    http://dockerserveraddress:4000/photos or https://4000-gitpodserveraddress/photos
